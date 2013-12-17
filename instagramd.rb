@@ -40,6 +40,17 @@ post '/url' do
 	end
 end
 
+get '/raw' do
+	begin
+		@url = URI::parse(params[:url])
+		@img_src = get_img_src(params[:url])
+		redirect to('/') if @img_src.nil?
+		haml :raw, :layout => false
+	rescue URI::InvalidURIError
+		redirect to('/')
+	end
+end
+
 def get_img_src(url)
 	path = URI::split(url)[5]
 	code_match = /\/p\/(?<code>\w+)\/?/.match(path)
