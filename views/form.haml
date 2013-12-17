@@ -1,0 +1,7 @@
+%form{:action => '/url', :method => 'post' }
+  %p
+    %label{:for => 'url'} Instagram post URL/address:
+    %br
+    %textarea{:autofocus => "autofocus", :name => 'url', :rows => '4', :style => 'width:99%', :placeholder => "https://instagram.com/p/h8duxCtZE_/"}= @url
+    %br
+    %input{:type => 'submit', :value => 'Get image!'}

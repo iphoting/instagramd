@@ -1,0 +1,19 @@
+!!! 5
+%html
+  %head
+    %title Instagramd - Instagram Raw Image Retriever
+  %body
+    %header#header
+      %h1
+        %a{:href => '/'} Instagramd
+      %p  An Instagram Raw Image Retriever.
+      %hr
+    
+    #content
+      =yield
+
+    %footer#footer
+      %hr
+      %p 
+        :markdown
+          The thumbnail is retrieved from Instagram's [public API](http://instagram.com/developer/embedding/).
