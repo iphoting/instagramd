@@ -4,15 +4,18 @@ require 'bundler/setup'
 require 'sinatra'
 require 'haml'
 require 'rack/ssl-enforcer'
+require 'rack-timeout'
 require 'uri'
 
 configure :production do
 	use Rack::SslEnforcer, :hsts => true
 end
 
+use Rack::Timeout
+Rack::Timeout.timeout = 10
 use Rack::ContentLength
-use Rack::Deflater
 use Rack::ConditionalGet
+use Rack::Deflater
 
 get '/' do
 	if params[:url]

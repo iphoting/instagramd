@@ -8,6 +8,7 @@ GEM
     rack-protection (1.5.1)
       rack
     rack-ssl-enforcer (0.2.6)
+    rack-timeout (0.0.4)
     rainbows (4.5.0)
       kgio (~> 2.5)
       rack (~> 1.1)
@@ -31,6 +32,7 @@ DEPENDENCIES
   haml
   rack
   rack-ssl-enforcer
+  rack-timeout
   rainbows
   rdiscount
   sinatra
