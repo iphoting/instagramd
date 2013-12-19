@@ -1,20 +1,21 @@
 require 'rubygems'
-require 'bundler/setup'
+require 'bundler'
 
 require 'sinatra'
 require 'haml'
-require 'rack/ssl-enforcer'
 require 'rack-timeout'
 require 'uri'
 
 configure :production do
+	require 'rack/ssl-enforcer'
 	use Rack::SslEnforcer, :hsts => true
 end
 
 use Rack::Timeout
 Rack::Timeout.timeout = 10
-use Rack::ContentLength
 use Rack::ConditionalGet
+use Rack::ETag
+use Rack::ContentLength
 use Rack::Deflater
 
 get '/' do
