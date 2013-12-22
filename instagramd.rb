@@ -57,8 +57,8 @@ get '/raw' do
 end
 
 def get_img_src(url)
-	code_match = /\/p\/(?<code>\w+)\/?/.match(path)
 	path = URI::split(get_final_location(url))[5]
+	code_match = /\/p\/(?<code>\S+[^\/])\/?/.match(path)
 	return nil if code_match.nil?
 	code = code_match[:code]
 	return "https://instagram.com/p/#{code}/media/?size=l"
