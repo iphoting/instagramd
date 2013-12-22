@@ -1,7 +1,5 @@
-%form{:action => '/url', :method => 'post' }
-  %p
-    %label{:for => 'url'} Instagram post URL/address:
-    %br
-    %textarea{:autofocus => "autofocus", :name => 'url', :rows => '4', :style => 'width:99%', :placeholder => "https://instagram.com/p/h8duxCtZE_/"}= @url
-    %br
-    %input{:type => 'submit', :value => 'Get image!'}
+%form{ :action => '/url', :method => 'post', :role => 'form' }
+  .form-group
+    %label.control-label{ :for => 'url' } Instagram post URL/address
+    %input.form-control.input-lg{ :autofocus => "autofocus", :name => 'url', :type => 'url', :placeholder => "https://instagram.com/p/h8duxCtZE_/", :value => @url }
+  %input.btn.btn-primary{:type => 'submit', :value => 'Get image!'}

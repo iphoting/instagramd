@@ -1,23 +1,26 @@
 !!! 5
 %html
   %head
-    %meta{:name => 'viewport', :content => 'width=device-width'}
+    %meta{ :name => 'viewport', :content => 'width=device-width, initial-scale=1.0' }
     %title Instagramd - Instagram Raw Image Retriever
+    %link{ :rel => 'stylesheet', :href => '//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css' }
+    %link{ :rel => 'stylesheet', :href => '//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css' }
+    %script{ :src => '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js' }
+    %script{ :src => '//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js' }
   %body
-    %header#header
+    %header#header.container
       %h1
         %a{:href => '/'} Instagramd
-      %p  An Instagram Raw Image Retriever.
+        %small An Instagram Raw Image Retriever.
       %hr
     
-    #content
+    #content.container
       =yield
 
-    %footer#footer
+    %footer#footer.container
       %hr
-      %p 
-        :markdown
-          The thumbnail is retrieved from Instagram's [public API](http://instagram.com/developer/embedding/).
+      :markdown
+        The thumbnail is retrieved from Instagram's [public API](http://instagram.com/developer/embedding/).
       %p
         Drag this bookmarklet to your bookmarks bar: <a href="javascript:void(location.href='https://instagramd.herokuapp.com/?url='+encodeURIComponent(location.href))">Instagramd It!</a>
       -#%p
