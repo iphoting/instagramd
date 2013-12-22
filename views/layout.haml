@@ -13,6 +13,12 @@
         %a{:href => '/'} Instagramd
         %small An Instagram Raw Image Retriever.
       %hr
+      - if @error
+        #error.alert.alert-danger.container #{@error}
+      - elsif @notice
+        #notice.alert.alert-info.alert-dismissable.container
+          %button.close{ :data => { :dismiss => 'alert'} } &times;
+          #{@notice}
     
     #content.container
       =yield

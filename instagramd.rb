@@ -4,6 +4,8 @@ require 'bundler'
 require 'sinatra'
 require 'haml'
 require 'rack-timeout'
+require 'rack-flash'
+require 'addressable/uri'
 require 'uri'
 require 'net/http'
 
@@ -19,39 +21,71 @@ use Rack::ETag
 use Rack::ContentLength
 use Rack::Deflater
 
+enable :sessions
+use Rack::Flash
+
 get '/' do
 	if params[:url]
 		begin
-			@url = URI::parse(params[:url])
-			@img_src = get_img_src(params[:url])
-			redirect to('/') if @img_src.nil?
-			haml :image
+			unless valid_url?(params[:url])
+				flash[:error] = "Invalid URL entered!"
+				redirect to('/')
+			else
+				@url = URI::parse(params[:url])
+				@img_src = get_img_src(params[:url])
+				if @img_src.nil?
+					flash[:error] = "Instagram Raw Image Not Found!"
+					redirect to('/')
+				end
+				haml :image
+			end
 		rescue URI::InvalidURIError
+			flash[:error] = "Invalid URL entered!"
 			redirect to('/')
 		end
 	else
+		@error = flash[:error] unless flash[:error].nil?
+		@notice = flash[:notice] unless flash[:notice].nil?
 		haml :form
 	end
 end
 
 post '/url' do
 	begin
-		@url = URI::parse(params[:url])
-		@img_src = get_img_src(params[:url])
-		redirect to('/') if @img_src.nil?
-		haml :image
+		unless valid_url?(params[:url])
+			flash[:error] = "Invalid URL entered!"
+			redirect to('/')
+		else
+			@url = URI::parse(params[:url])
+			@img_src = get_img_src(params[:url])
+			if @img_src.nil?
+				flash[:error] = "Instagram Raw Image Not Found!"
+				redirect to('/')
+			end
+			haml :image
+		end
 	rescue URI::InvalidURIError
+		flash[:error] = "Invalid URL entered!"
 		redirect to('/')
 	end
 end
 
 get '/raw' do
 	begin
-		@url = URI::parse(params[:url])
-		@img_src = get_img_src(params[:url])
-		redirect to('/') if @img_src.nil?
-		haml :raw, :layout => false
+		unless valid_url?(params[:url])
+			flash[:error] = "Invalid URL entered!"
+			redirect to('/')
+		else
+			@url = URI::parse(params[:url])
+			@img_src = get_img_src(params[:url])
+			if @img_src.nil?
+				flash[:error] = "Instagram Raw Image Not Found!"
+				redirect to('/')
+			end
+			haml :raw, :layout => false
+		end
 	rescue URI::InvalidURIError
+		flash[:error] = "Invalid URL entered!"
 		redirect to('/')
 	end
 end
@@ -71,4 +105,11 @@ def get_final_location(url)
 		return url if location.nil?
 		return get_final_location(location)
 	end
+end
+
+def valid_url?(url)
+  parsed = Addressable::URI.parse(url) or return false
+  %w(http https).include?(parsed.scheme)
+rescue Addressable::URI::InvalidURIError
+  false
 end
