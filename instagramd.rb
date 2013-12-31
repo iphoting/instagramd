@@ -1,8 +1,10 @@
 require 'rubygems'
-require 'bundler'
+require 'bundler/setup'
 
-require 'sinatra'
+require 'rdiscount'
 require 'haml'
+require 'sinatra'
+
 require 'rack-timeout'
 require 'rack-flash'
 require 'addressable/uri'
