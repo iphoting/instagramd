@@ -5,6 +5,7 @@ GEM
     haml (4.0.4)
       tilt
     kgio (2.8.1)
+    newrelic_rpm (3.7.1.180)
     rack (1.5.2)
     rack-flash3 (1.0.5)
       rack
@@ -34,6 +35,7 @@ PLATFORMS
 DEPENDENCIES
   addressable
   haml
+  newrelic_rpm
   rack
   rack-flash3
   rack-ssl-enforcer

@@ -12,3 +12,7 @@ gem 'rack-flash3'
 gem 'addressable'
 
 gem 'rainbows'
+
+group :production do
+	gem 'newrelic_rpm'
+end
