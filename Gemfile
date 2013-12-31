@@ -10,6 +10,7 @@ gem 'rack-ssl-enforcer'
 gem 'rack-timeout'
 gem 'rack-flash3'
 gem 'addressable'
+gem 'sprockets', '~> 2.0'
 
 gem 'rainbows'
 
