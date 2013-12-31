@@ -1,6 +1,8 @@
 require 'rubygems'
 require 'bundler/setup'
 
+require 'rack'
+
 require 'rdiscount'
 require 'haml'
 require 'sinatra'
