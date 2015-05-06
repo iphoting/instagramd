@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby '2.2.1'
+ruby '2.2.2'
 
 gem 'rack'
 gem 'sinatra'
@@ -10,7 +10,7 @@ gem 'rack-ssl-enforcer'
 gem 'rack-timeout'
 gem 'rack-flash3'
 gem 'addressable'
-gem 'sprockets', '~> 2.0'
+gem 'sprockets', '~> 3.0'
 
 gem 'rainbows'
 
