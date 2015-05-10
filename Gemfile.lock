@@ -5,8 +5,8 @@ GEM
     haml (4.0.6)
       tilt
     kgio (2.9.3)
-    newrelic_rpm (3.11.2.286)
-    rack (1.6.0)
+    newrelic_rpm (3.12.0.288)
+    rack (1.6.1)
     rack-flash3 (1.0.5)
       rack
     rack-protection (1.5.3)
