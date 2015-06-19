@@ -4,6 +4,7 @@ ruby '2.2.2'
 
 gem 'rack'
 gem 'sinatra'
+gem 'sinatra-contrib'
 gem 'haml'
 gem 'rdiscount'
 gem 'rack-ssl-enforcer'

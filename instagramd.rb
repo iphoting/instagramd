@@ -6,6 +6,7 @@ require 'rack'
 require 'rdiscount'
 require 'haml'
 require 'sinatra'
+require 'sinatra/multi_route'
 
 require 'rack-timeout'
 require 'rack-flash'
@@ -31,23 +32,7 @@ use Rack::Flash
 
 get '/' do
 	if params[:url]
-		begin
-			unless valid_url?(params[:url])
-				flash[:error] = "Invalid URL entered!"
-				redirect to('/')
-			else
-				@url = URI::parse(params[:url])
-				@img_src = get_img_src(params[:url])
-				if @img_src.nil?
-					flash[:error] = "Instagram Raw Image Not Found!"
-					redirect to('/')
-				end
-				haml :image
-			end
-		rescue URI::InvalidURIError
-			flash[:error] = "Invalid URL entered!"
-			redirect to('/')
-		end
+		redirect to("/url?url=#{params[:url]}")
 	else
 		@error = flash[:error] unless flash[:error].nil?
 		@notice = flash[:notice] unless flash[:notice].nil?
@@ -55,9 +40,9 @@ get '/' do
 	end
 end
 
-post '/url' do
+route :post, :get, ['/url', '/raw'] do
 	begin
-		unless valid_url?(params[:url])
+		unless params[:url] and valid_url?(params[:url])
 			flash[:error] = "Invalid URL entered!"
 			redirect to('/')
 		else
@@ -67,27 +52,11 @@ post '/url' do
 				flash[:error] = "Instagram Raw Image Not Found!"
 				redirect to('/')
 			end
-			haml :image
-		end
-	rescue URI::InvalidURIError
-		flash[:error] = "Invalid URL entered!"
-		redirect to('/')
-	end
-end
-
-get '/raw' do
-	begin
-		unless valid_url?(params[:url])
-			flash[:error] = "Invalid URL entered!"
-			redirect to('/')
-		else
-			@url = URI::parse(params[:url])
-			@img_src = get_img_src(params[:url])
-			if @img_src.nil?
-				flash[:error] = "Instagram Raw Image Not Found!"
-				redirect to('/')
+			if request.path_info == '/raw'
+				haml :raw, :layout => false
+			else
+				haml :image
 			end
-			haml :raw, :layout => false
 		end
 	rescue URI::InvalidURIError
 		flash[:error] = "Invalid URL entered!"
