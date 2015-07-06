@@ -6,8 +6,8 @@ GEM
     haml (4.0.6)
       tilt
     kgio (2.9.3)
-    multi_json (1.11.1)
-    newrelic_rpm (3.12.0.288)
+    multi_json (1.11.2)
+    newrelic_rpm (3.12.1.298)
     rack (1.6.4)
     rack-flash3 (1.0.5)
       rack
@@ -21,13 +21,13 @@ GEM
       kgio (~> 2.5)
       rack (~> 1.1)
       unicorn (~> 4.8)
-    raindrops (0.13.0)
+    raindrops (0.14.0)
     rdiscount (2.1.8)
     sinatra (1.4.6)
       rack (~> 1.4)
       rack-protection (~> 1.4)
       tilt (>= 1.3, < 3)
-    sinatra-contrib (1.4.4)
+    sinatra-contrib (1.4.6)
       backports (>= 2.0)
       multi_json
       rack-protection
@@ -58,3 +58,6 @@ DEPENDENCIES
   sinatra
   sinatra-contrib
   sprockets (~> 3.0)
+
+BUNDLED WITH
+   1.10.5
