@@ -9,7 +9,7 @@ GEM
       tilt
     kgio (2.11.0)
     multi_json (1.12.1)
-    newrelic_rpm (3.18.1.330)
+    newrelic_rpm (4.0.0.332)
     public_suffix (2.0.5)
     rack (1.6.5)
     rack-flash3 (1.0.5)
@@ -66,4 +66,4 @@ RUBY VERSION
    ruby 2.3.3p222
 
 BUNDLED WITH
-   1.14.4
+   1.14.6
