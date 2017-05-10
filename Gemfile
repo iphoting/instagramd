@@ -1,12 +1,12 @@
 source "https://rubygems.org"
 
-ruby '2.3.3'
+ruby '2.4.1'
 #ruby-gemset=instagramd
 
 gem 'rack'
 gem 'sinatra'
 gem 'sinatra-contrib'
-gem 'haml'
+gem 'haml', "~>5.0", ">= 5.0.1"
 gem 'rdiscount'
 gem 'rack-ssl-enforcer'
 gem 'rack-timeout'
