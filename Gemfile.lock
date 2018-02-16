@@ -3,17 +3,17 @@ GEM
   specs:
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    backports (3.11.0)
+    backports (3.11.1)
     concurrent-ruby (1.0.5)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
-    kgio (2.11.1)
-    multi_json (1.12.2)
+    kgio (2.11.2)
+    multi_json (1.13.1)
     mustermann (1.0.1)
-    newrelic_rpm (4.7.1.340)
-    public_suffix (3.0.1)
-    rack (2.0.3)
+    newrelic_rpm (4.8.0.341)
+    public_suffix (3.0.2)
+    rack (2.0.4)
     rack-flash3 (1.0.5)
       rack
     rack-protection (2.0.0)
