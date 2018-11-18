@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby '2.5.3'
+ruby File.read('.ruby-version', mode: 'rb').chomp
 #ruby-gemset=instagramd
 
 gem 'rack'
@@ -14,8 +14,7 @@ gem 'rack-flash3'
 gem 'addressable'
 gem 'sprockets', '~> 3.0'
 
-gem 'rainbows'
-
 group :production do
 	gem 'newrelic_rpm'
+	gem 'iodine', '~> 0.6'
 end
