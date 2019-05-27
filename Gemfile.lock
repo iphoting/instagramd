@@ -20,7 +20,7 @@ GEM
     minitest (5.11.3)
     multi_json (1.13.1)
     mustermann (1.0.3)
-    newrelic_rpm (5.5.0.348)
+    newrelic_rpm (6.3.0.355)
     public_suffix (3.0.3)
     rack (2.0.6)
     rack-flash3 (1.0.5)
