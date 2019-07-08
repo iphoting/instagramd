@@ -16,5 +16,5 @@ gem 'sprockets', '~> 3.0'
 
 group :production do
 	gem 'newrelic_rpm'
-	gem 'iodine', '~> 0.6'
+	gem 'iodine', '~> 0.7'
 end
