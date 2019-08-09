@@ -1,0 +1,21 @@
+{
+  "addons": [
+  ],
+  "buildpacks": [
+
+  ],
+  "env": {
+    "RACK_ENV": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "name": "instagramd",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}
