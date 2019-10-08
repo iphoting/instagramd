@@ -12,7 +12,7 @@ gem 'rack-ssl-enforcer'
 gem 'rack-timeout'
 gem 'rack-flash3'
 gem 'addressable'
-gem 'sprockets', '~> 3.0'
+gem 'sprockets', '~> 4.0'
 
 group :production do
 	gem 'newrelic_rpm'
