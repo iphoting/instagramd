@@ -1,1 +1,1 @@
-web: bundle exec iodine -p $PORT
+web: bundle exec iodine -p ${PORT:-5000}
