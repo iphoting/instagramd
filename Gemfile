@@ -3,6 +3,8 @@ source "https://rubygems.org"
 ruby File.read('.ruby-version', mode: 'rb').chomp
 #ruby-gemset=instagramd
 
+gem 'rake'
+
 gem 'rack'
 gem 'sinatra'
 gem 'sinatra-contrib'
@@ -24,5 +26,4 @@ group :test do
 	gem 'capybara'
 	gem 'selenium-webdriver'
 	gem 'rspec-expectations'
-	gem 'rake'
 end
