@@ -13,7 +13,7 @@ gem 'rdiscount'
 gem 'rack-ssl-enforcer'
 gem 'rack-timeout'
 gem 'rack-flash3'
-gem 'addressable'
+gem 'addressable', '>= 2.8.0'
 gem 'sprockets', '~> 4.0'
 
 group :production do
@@ -23,7 +23,7 @@ end
 
 group :test do
 	gem 'cucumber'
-	gem 'capybara'
+	gem 'capybara', '>= 3.35.3'
 	gem 'selenium-webdriver'
 	gem 'rspec-expectations'
 end
