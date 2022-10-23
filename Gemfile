@@ -5,7 +5,7 @@ ruby File.read('.ruby-version', mode: 'rb').chomp
 
 gem 'rake'
 
-gem 'rack'
+gem 'rack', '>= 3.0.0'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'haml', "~>5.2"
