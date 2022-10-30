@@ -8,7 +8,7 @@ gem 'rake'
 gem 'rack'
 gem 'sinatra'
 gem 'sinatra-contrib'
-gem 'haml', "~>5.2"
+gem 'haml', "~>6.0"
 gem 'rdiscount'
 gem 'rack-ssl-enforcer'
 gem 'rack-timeout'
